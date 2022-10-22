@@ -2,6 +2,8 @@ package co.com.nubank.mobile.challenge.di.component
 
 import android.content.Context
 import co.com.nubank.mobile.challenge.MainApplication
+import co.com.nubank.mobile.challenge.di.ViewModelBuilderModule
+import co.com.nubank.mobile.challenge.di.modules.ActivityBuildersModule
 import co.com.nubank.mobile.challenge.di.modules.DataModule
 import co.com.nubank.mobile.challenge.di.modules.RepositoryModule
 import co.com.nubank.mobile.challenge.di.modules.NetworkModule
@@ -18,7 +20,9 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         NetworkModule::class,
         DataModule::class,
-        RepositoryModule::class]
+        RepositoryModule::class,
+        ViewModelBuilderModule::class,
+        ActivityBuildersModule::class]
 )
 interface AppComponent : AndroidInjector<DaggerApplication> {
 

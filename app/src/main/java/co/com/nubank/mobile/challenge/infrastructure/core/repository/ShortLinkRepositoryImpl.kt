@@ -1,7 +1,6 @@
 package co.com.nubank.mobile.challenge.infrastructure.core.repository
 
 import co.com.nubank.mobile.challenge.infrastructure.core.aplication.entities.Link
-import co.com.nubank.mobile.challenge.infrastructure.core.aplication.exceptions.ApplicationException
 import co.com.nubank.mobile.challenge.infrastructure.core.data_source.DataSource
 import co.com.nubank.mobile.challenge.infrastructure.core.converters.Result
 import javax.inject.Inject
@@ -18,7 +17,7 @@ internal class ShortLinkRepositoryImpl @Inject constructor(
 
             Result.Success(linkEntity)
 
-        } catch (e: ApplicationException) {
+        } catch (e: Exception) {
             Result.Error(e)
         }
     }
@@ -31,7 +30,7 @@ internal class ShortLinkRepositoryImpl @Inject constructor(
 
             Result.Success(link)
 
-        } catch (e: ApplicationException) {
+        } catch (e: Exception) {
             Result.Error(e)
         }
     }
