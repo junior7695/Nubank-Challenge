@@ -20,4 +20,5 @@ internal class RemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getLinkByAlias(alias: String): Response<GetShortLinkResponseDTO> =
         apiService.getLinkByAlias(alias)
+
 }
