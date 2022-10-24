@@ -2,12 +2,13 @@ package co.com.nubank.mobile.challenge.di.component
 
 import android.content.Context
 import co.com.nubank.mobile.challenge.application.TestMainApplication
-import co.com.nubank.mobile.challenge.di.module.TestAppDataModule
+import co.com.nubank.mobile.challenge.di.module.TestAppRepositoryModule
 import co.com.nubank.mobile.challenge.di.ViewModelBuilderModule
+import co.com.nubank.mobile.challenge.di.module.TestAppDataModule
 import co.com.nubank.mobile.challenge.di.module.TestAppNetworkModule
 import co.com.nubank.mobile.challenge.di.modules.ActivityBuildersModule
-import co.com.nubank.mobile.challenge.di.modules.RepositoryModule
 import co.com.nubank.mobile.challenge.infrastructure.api.ApiServiceTest
+import co.com.nubank.mobile.challenge.infrastructure.core.data_source.remote.RemoteDataSourceImplTest
 import co.com.nubank.mobile.challenge.infrastructure.core.repository.ShortLinkRepositoryImplTest
 import dagger.BindsInstance
 import dagger.Component
@@ -20,7 +21,7 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         TestAppNetworkModule::class,
         TestAppDataModule::class,
-        RepositoryModule::class,
+        TestAppRepositoryModule::class,
         ViewModelBuilderModule::class,
         ActivityBuildersModule::class]
 )
@@ -36,4 +37,6 @@ interface TestAppComponent : AppComponent {
     fun inject(test: ShortLinkRepositoryImplTest)
 
     fun inject(api: ApiServiceTest)
+
+    fun inject(test: RemoteDataSourceImplTest)
 }
