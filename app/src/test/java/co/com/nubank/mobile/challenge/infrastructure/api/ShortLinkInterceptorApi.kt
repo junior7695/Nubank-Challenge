@@ -1,8 +1,12 @@
 package co.com.nubank.mobile.challenge.infrastructure.api
 
-import okhttp3.*
+import okhttp3.Interceptor
+import okhttp3.Response
+import okhttp3.Protocol
+import okhttp3.ResponseBody
+import okhttp3.MediaType
 
-class ShortLinkInterceptorApi: Interceptor {
+class ShortLinkInterceptorApi : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
 
         val uri = chain.request().url().uri().toString()
@@ -24,7 +28,9 @@ class ShortLinkInterceptorApi: Interceptor {
             .body(
                 ResponseBody.create(
                     MediaType.parse("application/json"),
-                responseString.toByteArray()))
+                    responseString.toByteArray()
+                )
+            )
             .addHeader("content-type", "application/json")
             .build()
     }

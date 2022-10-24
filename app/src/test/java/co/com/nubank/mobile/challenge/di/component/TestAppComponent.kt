@@ -6,7 +6,6 @@ import co.com.nubank.mobile.challenge.di.module.TestAppDataModule
 import co.com.nubank.mobile.challenge.di.ViewModelBuilderModule
 import co.com.nubank.mobile.challenge.di.module.TestAppNetworkModule
 import co.com.nubank.mobile.challenge.di.modules.ActivityBuildersModule
-import co.com.nubank.mobile.challenge.di.modules.NetworkModule
 import co.com.nubank.mobile.challenge.di.modules.RepositoryModule
 import co.com.nubank.mobile.challenge.infrastructure.api.ApiServiceTest
 import co.com.nubank.mobile.challenge.infrastructure.core.repository.ShortLinkRepositoryImplTest
