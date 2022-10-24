@@ -14,7 +14,7 @@ android {
         targetSdk 31
         version = appVersion
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.example.dagger.CustomTestRunner"
     }
 
     viewBinding {
