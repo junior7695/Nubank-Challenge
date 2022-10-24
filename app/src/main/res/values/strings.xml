@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Nubank Challenge</string>
+    <string name="link_invalid">Invalid link web, try with a correct link web.</string>
+    <string name="link_already_exist">This link already exist, try with another.</string>
+    <string name="link_shorted">This is the short link: %1$s</string>
+    <string name="empty_list">Empty List</string>
+    <string name="unknown">UNKNOWN</string>
+    <string name="alias_label">Alias:</string>
+    <string name="link_label">Link:</string>
+    <string name="edit_text_link_label">Please, write the link to short it.</string>
+    <string name="recently_items_label">Recently Shortened URLs</string>
 </resources>

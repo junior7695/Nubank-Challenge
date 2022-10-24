@@ -1,13 +1,18 @@
 package co.com.nubank.mobile.challenge.ui.landing.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import co.com.nubank.mobile.challenge.di.scopes.ActivityScope
+import co.com.nubank.mobile.challenge.infrastructure.core.aplication.entities.Link
 import co.com.nubank.mobile.challenge.infrastructure.core.repository.ShortLinkRepository
+import co.com.nubank.mobile.challenge.infrastructure.core.converters.Result
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@ActivityScope
 internal class ShortLinkViewModel @Inject constructor(
     private val repository: ShortLinkRepository
 ) : ViewModel() {
@@ -17,11 +22,40 @@ internal class ShortLinkViewModel @Inject constructor(
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
 
-    fun getLinkByAlias(errorViewListener: ErrorView) {
+    private val _recentlyItems =
+        MutableLiveData<List<Link>>()
+    val recentlyItems: LiveData<List<Link>> = _recentlyItems
+
+    fun postShortLink(url: String, errorViewListener: ErrorView) {
         _dataLoading.value = true
 
         viewModelScope.launch {
 
+            repository.postShortLink(url).let { result ->
+
+                when (result) {
+                    is Result.Success -> {
+                        errorViewListener.showError(false)
+                        Log.d(tagLog, "Request -> Success: $result")
+                        _dataLoading.value = false
+                        val list = _recentlyItems.value ?: emptyList()
+                        _recentlyItems.value = list + result.data
+                    }
+
+                    is Result.Error -> {
+                        val msg = "Request -> Error: ${result.exception.message}"
+                        Log.d(tagLog, msg)
+                        _dataLoading.value = false
+                        errorViewListener.showError(true, msg)
+                    }
+
+                    is Result.Loading -> {
+                        errorViewListener.showError(false)
+                        Log.d(tagLog, "Request -> Loading...")
+                        _dataLoading.value = true
+                    }
+                }
+            }
         }
     }
 
