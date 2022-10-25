@@ -1,7 +1,7 @@
 package co.com.nubank.mobile.challenge.di.component
 
 import android.content.Context
-import co.com.nubank.mobile.challenge.application.TestMainApplication
+import co.com.nubank.mobile.challenge.TestMainApplication
 import co.com.nubank.mobile.challenge.di.module.TestAppRepositoryModule
 import co.com.nubank.mobile.challenge.di.ViewModelBuilderModule
 import co.com.nubank.mobile.challenge.di.module.TestAppDataModule

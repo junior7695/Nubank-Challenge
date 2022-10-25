@@ -14,7 +14,19 @@ android {
         targetSdk 31
         version = appVersion
 
-        testInstrumentationRunner "com.example.dagger.CustomTestRunner"
+        testInstrumentationRunner "co.com.nubank.mobile.challenge.CustomTestRunner"
+    }
+
+    android {
+        sourceSets {
+            String sharedTestDir = 'src/sharedTest/java'
+            test {
+                java.srcDir sharedTestDir
+            }
+            androidTest {
+                java.srcDir sharedTestDir
+            }
+        }
     }
 
     viewBinding {
@@ -77,6 +89,8 @@ dependencies {
     testImplementation "androidx.test:rules:$androidxTestRulesVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxTestsVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$expresoVersion"
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
     testImplementation "io.mockk:mockk:$mockkVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
@@ -85,4 +99,5 @@ dependencies {
     // Using Dagger in androidTest and Robolectric too
     kaptTest "com.google.dagger:dagger-compiler:$daggerVersion"
     kaptAndroidTest "com.google.dagger:dagger-compiler:$daggerVersion"
+    kaptAndroidTest "com.google.dagger:dagger-android-processor:$daggerVersion"
 }

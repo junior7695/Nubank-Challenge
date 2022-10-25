@@ -1,4 +1,4 @@
-package co.com.nubank.mobile.challenge.application
+package co.com.nubank.mobile.challenge
 
 import co.com.nubank.mobile.challenge.MainApplication
 import co.com.nubank.mobile.challenge.di.component.AppComponent

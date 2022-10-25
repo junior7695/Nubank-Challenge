@@ -1,4 +1,4 @@
-package co.com.nubank.mobile.challenge.application
+package co.com.nubank.mobile.challenge
 
 import android.app.Application
 import android.content.Context

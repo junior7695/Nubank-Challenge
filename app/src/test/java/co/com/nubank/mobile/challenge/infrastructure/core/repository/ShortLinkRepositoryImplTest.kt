@@ -1,7 +1,7 @@
 package co.com.nubank.mobile.challenge.infrastructure.core.repository
 
 
-import co.com.nubank.mobile.challenge.application.TestMainApplication
+import co.com.nubank.mobile.challenge.TestMainApplication
 import co.com.nubank.mobile.challenge.di.component.TestAppComponent
 import co.com.nubank.mobile.challenge.di.component.DaggerTestAppComponent
 import co.com.nubank.mobile.challenge.infrastructure.api.dtos.response.GetShortLinkResponseDTO
